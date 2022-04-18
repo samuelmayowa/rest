@@ -1,0 +1,199 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% include 'navbar.html' %}
+
+<!-- bredcrumb Area Start-->
+<section class="breadcrumb-area">
+    <div class="banner-bg-img"></div>
+    <div class="banner-shape-1"><img src="{%static 'assets/img/banner/shape-1.png' %}" alt="img"></div>
+    <div class="banner-shape-2"><img src="{%static 'assets/img/banner/shape-2.png' %}" alt="img"></div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 align-self-center">
+                <div class="banner-inner text-center">
+                    <h3>Choose you items
+                    </h3>
+                    <h1>OUR MENU</h1>
+                    <nav aria-label="breadcrumb">
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">All Food Section</li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- bredcrumb Area End -->
+
+<!-- shop-details Area Start-->
+
+<!-- <div id="productapp"> -->
+<div class="shop-details-area pd-top-100">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="sticy-product">
+                    <div class="product-thumbnail-wrapper">
+                        <div class="single-thumbnail-slider">
+                            {% for slide in meal_slide %}
+                            <div class="slider-item">
+                                <img src="{{slide.slideshow.url}}" alt="item">
+                            </div>
+                            {% endfor %}
+
+
+                        </div>
+                        <div class="product-thumbnail-carousel">
+
+                            {% for images in meal_slide %}
+                            <div class="single-thumbnail-item">
+                                <img src="{{images.slideshow.url}}" alt="item">
+                            </div>
+                            {% endfor %}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="shop-item-details">
+                    <nav>
+                        {%include 'messages.html'%}
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{% url 'meals:meal_list' %}">Food Store</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Shop Details</li>
+                        </ul>
+                    </nav>
+                    <h2 class="entry-title">{{details.name}}</h2>
+                    <div class="row">
+                        <div class="col-lg-6 align-self-center">
+                            <h4 class="price">₦ {{details.selling_price}}</h4>
+                        </div>
+                    </div>
+                    <p class="mt-4">{{details.summary|safe}}</p>
+
+                    <a href="{% url 'carts:addtocart' details.id %}" class="btn btn-danger">Add To Cart</a>
+                    <ul class="cat">
+                        <li> Type: {{details.food_type}}</li>
+                        <li>Person(s): {{details.people}} </li>
+                        <li>Ready Time: {{details.preparation_time}} Minutes</li>
+                    </ul>
+                    <div class="shop-tabs">
+                        <ul class="nav nav-pills" id="pills-tab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home"
+                                    aria-selected="true">Description</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-profile" type="button" role="tab"
+                                    aria-controls="pills-profile" aria-selected="false">Additional
+                                    information</button>
+                            </li>
+                            {% comment %} <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-contact" type="button" role="tab"
+                                    aria-controls="pills-contact" aria-selected="false">Reviews (1) </button>
+                            </li> {% endcomment %}
+                        </ul>
+                        <div class="tab-content" id="pills-tabContent">
+                            <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
+                                aria-labelledby="pills-home-tab">
+                                <p class="mb-4">{{details.description|safe}} </p>
+                            </div>
+                            <div class="tab-pane fade" id="pills-profile" role="tabpanel"
+                                aria-labelledby="pills-profile-tab">
+                                {% comment %} <h6 class="title">About Product</h6> {% endcomment %}
+                                <div class="quick-view mt-4">
+                                    {% comment %} <h6 class="title mb-4">Quick View</h6> {% endcomment %}
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="single-about-wrap style-2">
+                                                <img src="{%static 'assets/img/icon/1.png' %}" alt="img">
+                                                Fresh food
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="single-about-wrap style-2">
+                                                <img src="{%static 'assets/img/icon/2.png' %}" alt="img">
+                                                Fast Delivery
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="single-about-wrap style-2">
+                                                <img src="{%static 'assets/img/icon/3.png' %}" alt="img">
+                                                Quality Maintain
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="single-about-wrap style-2">
+                                                <img src="{%static  'assets/img/icon/4.png' %}" alt="img">
+                                                24/7 Service
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- </div> -->
+
+<!-- shop-details Area End -->
+
+<!-- related-product Area Start-->
+<section class="related-product-area pd-top-120">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-12">
+                <div class="section-title mb-0">
+                    <h2 class="title">Related Products</h2>
+                </div>
+                <div class="related-product-slider owl-carousel style-2">
+
+                    {% for pro in meal %}
+                    <div class="item">
+                        <div class="single-item-wrap">
+                            <div class="thumb">
+                                <img src="{{pro.image.url}}" alt="img">
+                                <!-- <a class="fav-btn" href="#"><i class="ri-heart-line"></i></a> -->
+                            </div>
+                            <div class="wrap-details">
+                                <h5><a href="{% url 'meals:meal_details' pro.slug %}">{{pro.name}}</a></h5>
+                                <div class="wrap-footer">
+                                    <div class="rating">
+                                        Time
+                                        <span class="rating-inner">
+                                            {{pro.preparation_time}}
+                                        </span>
+                                        Minutes
+                                    </div>
+                                    <h6 class="price">₦ {{pro.selling_price}}</h6>
+                                </div>
+                            </div>
+                            <div class="btn-area">
+                                <a class="btn btn-secondary" href="{% url 'meals:meal_details' pro.slug %}">Full details
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- related-product Area End -->
+
+{% endblock content %}

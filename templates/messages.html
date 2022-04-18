@@ -1,0 +1,8 @@
+{% load static %}
+{% if messages %}
+{% for msg in messages %}
+<div class="alert alert-success" data-dismiss="alert" role="alert">
+    {{ msg }}
+</div>
+{% endfor %}
+{% endif %}

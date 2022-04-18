@@ -1,0 +1,126 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+{% include 'navbar.html' %}
+
+    <!-- bredcrumb Area Start-->
+    <section class="breadcrumb-area">
+        <div class="banner-bg-img"></div>
+        <div class="banner-shape-1"><img src="{%static 'assets/img/banner/shape-1.png' %}" alt="img"></div>
+        <div class="banner-shape-2"><img src="{%static 'assets/img/banner/shape-2.png' %}" alt="img"></div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 align-self-center">
+                    <div class="banner-inner text-center">
+                        <h3>Cart Page
+                        </h3>
+                        <h1>Check your box
+                        </h1>
+                        <nav aria-label="breadcrumb">
+                            <ul class="breadcrumb">
+                              <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                              <li class="breadcrumb-item active" aria-current="page">Cart</li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- bredcrumb Area End --> 
+
+    <!-- about Area Start-->
+    <section class="about-area pd-top-120">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 col-sm-8">
+                    <div class="thumb mb-4 mb-lg-0">
+                        <img src="{{about.origin_image.url}}" alt="img">
+                    </div>
+                </div>
+                <div class="col-lg-6 order-lg-first align-self-center">
+                    <div class="section-title mb-0 text-center text-lg-start">
+                        <h3 class="sub-title">Our History</h3>
+                        <h2 class="title">Origins of the Restaurant</h2>
+                        <p>{{about.origin_content}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- about Area End -->
+
+    <!-- about Area Start-->
+    <section class="about-area pd-top-120 pd-bottom-90">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="thumb">
+                        <img src="{{about.why_we_are_best_image.url}}" alt="img">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="section-title text-center text-lg-start">
+                        <h3 class="sub-title">Why choose us</h3>
+                        <h2 class="title">Why we are the best</h2>
+                        <p>{{about.why_we_are_best_content}}</p>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="single-about-wrap">
+                                <img src="{%static 'assets/img/icon/1.png' %}" alt="img">
+                                Fresh food
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="single-about-wrap">
+                                <img src="{%static 'assets/img/icon/2.png' %}" alt="img">
+                                Fast Delivery
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="single-about-wrap">
+                                <img src="{%static 'assets/img/icon/3.png' %}" alt="img">
+                                Quality Maintain
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="single-about-wrap">
+                                <img src="{%static 'assets/img/icon/4.png' %}" alt="img">
+                                24/7 Service
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- about Area End -->
+
+    <!-- testimonial Area Start-->
+    <section class="testimonial-area text-center">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-7 col-md-10">
+                    <div class="testimonial-slider owl-carousel">
+                        {% for testimonials in testimonials %}
+
+                            <div class="item">
+                            <div class="testimonial-wrap">
+                                <p>“{{testimonials.content}}”</p>
+                                <h3>{{testimonials.name}}
+                                </h3>
+                                <h6>{{testimonials.office_name}}</h6>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- testimonial Area End -->
+
+{% endblock content %}

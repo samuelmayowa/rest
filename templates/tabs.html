@@ -1,0 +1,199 @@
+<div class="tab-content" id="pills-tabContent">
+    <div class="tab-pane fade show active" id="pills-ramen" role="tabpanel" aria-labelledby="pills-ramen-tab">
+        <div class="row justify-content-center">
+            {% for all in all %}
+            <div class="col-xl-3 col-lg-4 col-md-6">
+                <div class="single-item-wrap style-2">
+                    <div class="thumb">
+                        <img src="{{all.image.url}}" alt="img">
+                        <a class="fav-btn" href="{% url 'meals:meal_details' all.slug %}"><i
+                                class="ri-heart-fill"></i></a>
+                    </div>
+                    <div class="wrap-details">
+                        <h5><a href="{% url 'meals:meal_details' all.slug %}">{{all.name}}</a></h5>
+                        <div class="wrap-footer">
+                            <div class="rating">
+                                Person(s)
+                                <span class="rating-inner">
+                                    {{all.people}}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="btn-area">
+                            <h6 class="price">₦ {{all.selling_price}}</h6>
+                            <a class="btn btn-secondary" href="{% url 'meals:meal_details' all.slug %}">Details <i
+                                    class="ri-add-line"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+    <div class="tab-pane fade" id="pills-pizza" role="tabpanel" aria-labelledby="pills-pizza-tab">
+        <div class="row justify-content-center">
+
+            {% for pz in pz %}
+            <div class="col-lg-3 col-md-6">
+                <div class="single-item-wrap style-2">
+                    <div class="thumb">
+                        <img src="{{pz.image.url}}" alt="img">
+                        <a class="fav-btn" href="{% url 'meals:meal_details' pz.slug %}"><i
+                                class="ri-heart-fill"></i></a>
+                    </div>
+                    <div class="wrap-details">
+                        <h5><a href="single-product.html">Margherita Pizza</a></h5>
+                        <div class="wrap-footer">
+                            <div class="rating">
+                                Person(s)
+                                <span class="rating-inner">
+                                    {{pz.people}}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="btn-area">
+                            <h6 class="price">₦ {{pz.selling_price}}</h6>
+                            <a class="btn btn-secondary" href="{% url 'meals:meal_details' pz.slug %}">Details <i
+                                    class="ri-add-line"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+    <div class="tab-pane fade" id="pills-burger" role="tabpanel" aria-labelledby="pills-burger-tab">
+        <div class="row justify-content-center">
+
+            {% for bg in bg %}
+            <div class="col-xl-3 col-lg-4 col-md-6">
+                <div class="single-item-wrap style-2">
+                    <div class="thumb">
+                        <img src="{{bg.image.url}}" alt="img">
+                        <a class="fav-btn" href="{% url 'meals:meal_details' bg.slug %}"><i
+                                class="ri-heart-fill"></i></a>
+                    </div>
+                    <div class="wrap-details">
+                        <h5><a href="{% url 'meals:meal_details' bg.slug %}">Double Burger</a></h5>
+                        <div class="wrap-footer">
+                            <div class="rating">
+                                Person(s)
+                                <span class="rating-inner">
+                                    {{bg.people}}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="btn-area">
+                            <h6 class="price">₦ {{bg.selling_price}}</h6>
+                            <a class="btn btn-secondary" href="{% url 'meals:meal_details' bg.slug %}">Details <i
+                                    class="ri-add-line"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+    <div class="tab-pane fade" id="pills-french-fry" role="tabpanel" aria-labelledby="pills-french-fry-tab">
+        <div class="row justify-content-center">
+
+            {% for ld in ld %}
+            <div class="col-xl-3 col-lg-4 col-md-6">
+                <div class="single-item-wrap style-2">
+                    <div class="thumb">
+                        <img src="{{ld.image.url}}" alt="img">
+                        <a class="fav-btn" href="{% url 'meals:meal_details' ld.slug %}"><i
+                                class="ri-heart-fill"></i></a>
+                    </div>
+                    <div class="wrap-details">
+                        <h5><a href="{% url 'meals:meal_details' ld.slug %}">{{ld.name}}</a></h5>
+                        <div class="wrap-footer">
+                            <div class="rating">
+                                Person(s)
+                                <span class="rating-inner">
+                                    {{ld.people}}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="btn-area">
+                            <h6 class="price">₦ {{ld.selling_price}}</h6>
+                            <a class="btn btn-secondary" href="{% url 'meals:meal_details' ld.slug %}">Details <i
+                                    class="ri-add-line"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+    <div class="tab-pane fade" id="pills-fast-food" role="tabpanel" aria-labelledby="pills-fast-food-tab">
+        <div class="row justify-content-center">
+
+            {% for ff in ff %}
+            <div class="col-xl-3 col-lg-4 col-md-6">
+                <div class="single-item-wrap style-2">
+                    <div class="thumb">
+                        <img src="{{ff.image.url}}" alt="img">
+                        <a class="fav-btn" href="{% url 'meals:meal_details' ff.slug %}"><i
+                                class="ri-heart-fill"></i></a>
+                    </div>
+                    <div class="wrap-details">
+                        <h5><a href="{% url 'meals:meal_details' ff.slug %}">{{ff.name}}</a></h5>
+                        <div class="wrap-footer">
+                            <div class="rating">
+                                Person(s)
+                                <span class="rating-inner">
+                                    {{ff.people}}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="btn-area">
+                            <h6 class="price">₦ {{ff.selling_price}}</h6>
+                            <a class="btn btn-secondary" href="{% url 'meals:meal_details' ff.slug %}">Details <i
+                                    class="ri-add-line"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+    <div class="tab-pane fade" id="pills-drinks" role="tabpanel" aria-labelledby="pills-drinks-tab">
+        <div class="row justify-content-center">
+
+            {% for sd in sd %}
+            <div class="col-xl-3 col-lg-4 col-md-6">
+                <div class="single-item-wrap style-2">
+                    <div class="thumb">
+                        <img src="{{sd.image.url}}" alt="img">
+                        <a class="fav-btn" href="{% url 'meals:meal_details' sd.slug %}"><i
+                                class="ri-heart-fill"></i></a>
+                    </div>
+                    <div class="wrap-details">
+                        <h5><a href="{% url 'meals:meal_details' sd.slug %}">{{sd.name}}</a></h5>
+                        <div class="wrap-footer">
+                            <div class="rating">
+                                Person
+                                <span class="rating-inner">
+                                    {{sd.people}}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="btn-area">
+                            <h6 class="price">₦ {{sd.selling_price}}</h6>
+                            <a class="btn btn-secondary" href="{% url 'meals:meal_details' sd.slug %}">Details <i
+                                    class="ri-add-line"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</div>

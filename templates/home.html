@@ -1,0 +1,259 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- navbar start -->
+{% include 'navbar.html' %}
+<!-- navbar end -->
+
+<!-- Banner Area Start-->
+<section class="banner-area banner-area-2">
+    {% for banner in banner %}
+        <div class="banner-thumb">
+            <img length="899" width="645" src="{{banner.image.url}}" alt="img">
+        </div>
+        <div class="banner-bg">
+            <div class="banner-bg-img"></div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-8 align-self-center">
+                    <div class="banner-inner">
+                        <h3>{{banner.food_type}}</h3>
+                        <h1>{{banner.name}}</h1>
+                        <p>{{banner.summary|safe}}</p>
+                        <a class="btn btn-secondary" href="{% url 'meals:meal_details' banner.slug %}">GET IT NOW</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+
+</section>
+<!-- Banner Area End -->
+
+<!-- intro-contact Area Start-->
+<section class="intro-contact-area pd-bottom-90">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-4 col-md-6">
+                <div class="single-intro-contact-wrap">
+                    <img src="{%static 'assets/img/home-2/icon/calendar.png' %}" alt="icon">
+                    <h5>Mon-fri : 10AM -9:30PM</h5>
+                    <p>Working Hours </p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="single-intro-contact-wrap single-intro-contact-wrap-active">
+                    <img src="{% static 'assets/img/home-2/icon/map-marker.png' %}" alt="icon">
+                    <h5>Trails End Road
+                        Ft United States</h5>
+                    <p>Store Location</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="single-intro-contact-wrap">
+                    <img src="{%static 'assets/img/home-2/icon/phone-2.png' %}" alt="icon">
+                    <h5>+234 706 7536 582</h5>
+                    <p>Working Hours</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- intro-contact Area End -->
+
+<!-- about Area Start-->
+<section class="about-area pd-top-120 pd-bottom-90">
+    <div class="container">
+        <div class="row justify-content-center">
+            {% for why_choose_us in why_choose_us %}
+
+                <div class="col-lg-6 col-md-8">
+                    <div class="thumb mb-lg-0 mb-4">
+                        <img height = "758" width = "522" src="{{why_choose_us.image.url}}" alt="img">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="section-title text-lg-start text-center">
+                        <h3 class="sub-title">Why choose us</h3>
+                        <h2 class="title">{{why_choose_us.title}}</h2>
+                        <p>{{why_choose_us.content}}</p>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="single-about-wrap style-2">
+                                <img src="{% static 'assets/img/icon/1.png' %}" alt="img">
+                                Fresh food
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="single-about-wrap style-2">
+                                <img src="{% static 'assets/img/icon/2.png' %}" alt="img">
+                                Fast Delivery
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="single-about-wrap style-2">
+                                <img src="{% static 'assets/img/icon/3.png' %}" alt="img">
+                                Quality Maintain
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="single-about-wrap style-2">
+                                <img src="{% static 'assets/img/icon/4.png' %}" alt="img">
+                                24/7 Service
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            {% endfor %}
+
+        </div>
+    </div>
+</section>
+<!-- about Area End -->
+
+<!-- offer Area Start-->
+<section class="offer-area pd-bottom-90">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12 align-self-center d-contents">
+                <div class="single-offer-wrap single-offer-wrap-2" style="background-color: var(--secondary-color);">
+                    <img class="bg-img" src="{%static 'assets/img/home-2/offer/1.png' %}" alt="img">
+                    <div class="wrap-details">
+                        <h4>Double Cheese</h4>
+                        <h1>BURGER </h1>
+                        <p>With Free Cocacola. Stay home , we deliver</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 align-self-center">
+                <div class="single-offer-wrap single-offer-wrap-3" style="background-color: #000;">
+                    <img class="bg-img" src="{% static 'assets/img/home-2/offer/2.png' %}" alt="img">
+                    <div class="wrap-details">
+                        <h3>Enjoy 30% CashBack</h3>
+                        <span>Up to $70 on all Bikash</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 align-self-center">
+                <div class="single-offer-wrap single-offer-wrap-4" style="background-color: #F8F7F2;">
+                    <img class="bg-img" src="{% static 'assets/img/home-2/offer/3.png' %}" alt="img">
+                    <div class="wrap-details text-center">
+                        <h3><span>25 EXTRA</span>
+                            FREE ON KFC</h3>
+                        <p>Stay home , we deliver</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 align-self-center">
+                <div class="single-offer-wrap single-offer-wrap-5" style="background: #39251D">
+                    <img class="bg-img" src="{% static 'assets/img/home-2/offer/4.png' %}" alt="img">
+                    <div class="wrap-details">
+                        <h5>Test with</h5>
+                        <h3><span>JAPANESE</span>FOOD AT HOME</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- offer Area End -->
+
+<!-- product Area Start-->
+<section class="product-area pd-bottom-90">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <div class="section-title text-center">
+                    <h3 class="sub-title">Our signature</h3>
+                    <h2 class="title">Delicious Deals for Delicious Meals</h2>
+                </div>
+                <ul class="product-nav style-2 nav nav-pills" id="pills-tab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="pills-ramen-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-ramen" type="button" role="tab" aria-controls="pills-ramen"
+                            aria-selected="true"><img src="{% static 'assets/img/category/1.png' %}"
+                                alt="img">General</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-pizza-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-pizza" type="button" role="tab" aria-controls="pills-pizza"
+                            aria-selected="false"><img src="{% static 'assets/img/category/2.png' %}"
+                                alt="img">Pizza</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-burger-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-burger" type="button" role="tab" aria-controls="pills-burger"
+                            aria-selected="false"><img src="{% static 'assets/img/category/3.png' %}"
+                                alt="img">Burger</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-french-fry-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-french-fry" type="button" role="tab" aria-controls="pills-french-fry"
+                            aria-selected="false"><img src="{% static 'assets/img/category/4.png' %}" alt="img">Local Dishes</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-fast-food-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-fast-food" type="button" role="tab" aria-controls="pills-fast-food"
+                            aria-selected="false"><img src="{% static 'assets/img/category/5.png' %}" alt="img">Fast
+                            food</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-drinks-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-drinks" type="button" role="tab" aria-controls="pills-drinks"
+                            aria-selected="false"><img src="{% static 'assets/img/category/6.png' %}" alt="img">Soft
+                            drinks</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="tab-content" id="pills-tabContent">
+        {% include 'tabs.html' %}
+        </div>
+    </div>
+    </div>
+</section>
+<!-- product Area End -->
+
+<!-- testimonial Area Start-->
+<section class="testimonial-area-2 pd-top-110 pd-bottom-115">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <div class="testimonial-slider owl-carousel">
+
+                    {% for test in testimony %}
+                        <div class="item">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="thumb">
+                                        <img src="{{test.image.url}}" alt="img">
+                                    </div>
+                                </div>
+                                <div class="col-lg-8 col-md-12 align-self-center">
+                                    <div class="testimonial-wrap">
+                                        <div class="section-title">
+                                            <h3 class="sub-title">Our Testimonials</h3>
+                                            <h2 class="title">{{test.title}}</h2>
+                                        </div>
+                                        <p>“{{test.content}}”</p>
+                                        <h3>{{test.name}}
+                                        </h3>
+                                        <h6>{{test.office_name}}</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- testimonial Area End -->
+
+{% endblock content %}

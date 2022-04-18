@@ -1,0 +1,80 @@
+{% load static %}
+<header class="navbar-area">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container nav-container">
+            <div class="responsive-mobile-menu">
+                <button class="menu toggle-btn d-block d-lg-none" data-target="#themefie_main_menu"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="icon-left"></span>
+                    <span class="icon-right"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="themefie_main_menu">
+                <ul class="navbar-nav menu-open">
+                    <li class="current-menu-item">
+                        <a href="{% url 'home' %}">Home</a>
+                    </li>
+                    <li><a href="{% url 'meals:meal_list' %}">Food Store</a></li>
+                    <li>
+                        <a href="{% url 'about_us' %}">About Us</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'contact_us' %}">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="logo">
+                <a class="main-logo" href="{% url 'home' %}"><img src="{%static 'assets/img/logo.png' %}" alt="img"></a>
+            </div>
+            <div class="nav-right-part nav-right-part-mobile">
+                <ul>
+                    <li><a name="q" class="search" href="#"><i class="ri-search-line"></i></a>
+                    </li>
+                    <li class="phone-contact d-md-block d-none"><i class="ri-phone-fill float-start"></i>
+                        +2347 067 5365 82
+                    </li>
+                    <!-- <li class="d-md-block d-none">
+                        {% if user.id is not None %}
+                        <div>
+                            <div class="header-btns-icon">
+                                <img src="{{ request.session.userimage }}" style="height: 40px; border-radius: 30%">
+                            </div>
+                            <strong class="text-lowercase">{{ user.first_name }}</strong>
+                        </div>
+                        <a href="{% url 'user:logout_func' %}" class="text-uppercase">Logout</a>
+                        {% else %}
+                        <div class="ri-user-fill float-start"><a href="{% url 'user:login' %}"
+                                class="text-uppercase">Login</a> / <a href="{% url 'user:signup' %}"
+                                class="text-uppercase">Sign Up</a></div>
+                        {% endif %}
+                    </li> -->
+                    <li class="menu-cart"><a href="{% url 'cart:shop_cart' %}">CART <span>₦ {{total}}</span></a></li>
+                </ul>
+            </div>
+            <div class="nav-right-part nav-right-part-desktop">
+                <ul>
+                    <li><a name="q" class="search" href="#"><i class="ri-search-line"></i></a>
+                    </li>
+                    <li class="phone-contact"><i class="ri-phone-fill float-start"></i>
+                        +2347 067 5365 82
+                    </li>
+                    <!-- <li class="d-md-block d-none">
+                        {% if user.id is not None %}
+                            <div>
+                                <div class="header-btns-icon">
+                                    <img src="{{ request.session.userimage }}" style="height: 40px; border-radius: 30%">
+                                </div>
+                                <strong class="text-lowercase">{{ user.first_name }}</strong>
+                            </div>
+                            <a href="{% url 'user:logout_func' %}" class="text-uppercase">Logout</a>
+                        {% else %}
+                            <div class="ri-user-fill float-start"><a href="{% url 'user:login' %}" class="text-lowercase">Login</a> / <a href="{% url 'user:signup' %}" class="text-lowercase">Sign Up</a></div>
+                        {% endif %}
+                        </li> -->
+                    <li class="menu-cart"><a href="{% url 'cart:shop_cart' %}">CART <span>₦ {{cart.total}}</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>

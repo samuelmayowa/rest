@@ -1,0 +1,56 @@
+{%extends 'base.html' %}
+{%block content %}
+{%include 'navbar.html' %}
+
+<!-- bredcrumb Area Start-->
+    <section class="breadcrumb-area">
+        <div class="banner-bg-img"></div>
+        <div class="banner-shape-1"><img src="{%static 'assets/img/banner/shape-1.png' %}" alt="img"></div>
+        <div class="banner-shape-2"><img src="{%static 'assets/img/banner/shape-2.png' %}" alt="img"></div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 align-self-center">
+                    <div class="banner-inner text-center">
+                        <h3>Completed
+                        </h3>
+                        <h1>We have started processing your order(s)
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- bredcrumb Area End -->
+
+<!-- section -->
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="order-summary clearfix">
+                    <div class="section-title">
+                        <h3 class="title">Order Complated</h3>
+                    </div>
+                    <hr>
+                    <h2>Dear  {{ user.first_name }} {{  user.last_name }}</h2>
+                    <hr>
+                    <h3>Your order is completed</h3>
+                    <h3>Order Code : {{ ordercode }}</h3>
+                    <h3>Thank You</h3>
+                    <hr>
+
+                </div>
+
+            </div>
+
+
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /section -->
+{%endblock %}

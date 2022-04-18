@@ -1,0 +1,229 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content %}
+{% include 'navbar.html' %}
+
+<!-- bredcrumb Area Start-->
+<section class="breadcrumb-area">
+    <div class="banner-bg-img"></div>
+    <div class="banner-shape-1"><img src="{%static 'assets/img/banner/shape-1.png' %}" alt="img"></div>
+    <div class="banner-shape-2"><img src="{%static 'assets/img/banner/shape-2.png' %}" alt="img"></div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 align-self-center">
+                <div class="banner-inner text-center">
+                    <h3>Choose you items
+                    </h3>
+                    <h1>OUR MENU</h1>
+                    <nav aria-label="breadcrumb">
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">All Food Section</li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- bredcrumb Area End -->
+
+<!-- category Area Start-->
+<section class="category-area">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-12 align-self-center">
+                <ul class="category-menu">
+                    <li class="category-wrap"><a href="#"><img src="{%static 'assets/img/category/1.png' %}"
+                                alt="category">General</a>
+
+                        <div class="category-sub-menu">
+                            <div class="row">
+
+                                {% for all in oth %}
+                                <div class="col-md-3 col-6">
+                                    <div class="single-item-wrap text-center">
+                                        <div class="thumb">
+                                            <img src="{{all.image.url}}" alt="img">
+                                        </div>
+                                        <div class="wrap-details">
+                                            <h6><a href="{% url 'meals:meal_details' all.slug %}">{{all.name}}</a></h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+
+                            </div>
+
+                    </li>
+                    <li class="category-wrap"><a href="#"><img src="{%static 'assets/img/category/2.png' %}"
+                                alt="category">Pizza</a>
+                        <div class="category-sub-menu">
+                            <div class="row">
+
+                                {% for pz in pz %}
+                                <div class="col-md-3 col-6">
+                                    <div class="single-item-wrap text-center">
+                                        <div class="thumb">
+                                            <img src="{{pz.image.url}}" alt="img">
+                                        </div>
+                                        <div class="wrap-details">
+                                            <h6><a href="{% url 'meals:meal_details' pz.slug %}">{{pz.name}}</a></h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+
+                            </div>
+                        </div>
+                    </li>
+                    <li class="category-wrap"><a href="#"><img src="{%static 'assets/img/category/3.png' %}"
+                                alt="category">Burger</a>
+                        <div class="category-sub-menu">
+                            <div class="row">
+                                {% for bg in bg %}
+                                <div class="col-md-3 col-6">
+                                    <div class="single-item-wrap text-center">
+                                        <div class="thumb">
+                                            <img src="{{bg.image.url}}" alt="img">
+                                        </div>
+                                        <div class="wrap-details">
+                                            <h6><a href="{% url 'meals:meal_details' bg.slug %}">{{bg.name}}</a></h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="category-wrap"><a href="#"><img src="{%static 'assets/img/category/4.png' %}"
+                                alt="category">Local Dishes</a>
+                        <div class="category-sub-menu">
+                            <div class="row">
+                                {% for ld in ld %}
+                                <div class="col-md-3 col-6">
+                                    <div class="single-item-wrap text-center">
+                                        <div class="thumb">
+                                            <img src="{{ld.image.url}}" alt="img">
+                                        </div>
+                                        <div class="wrap-details">
+                                            <h6><a href="{% url 'meals:meal_details' ld.slug %}">{{ld.name}}</a></h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+
+                            </div>
+                        </div>
+                    </li>
+                    <li class="category-wrap"><a href="#"><img src="{%static 'assets/img/category/5.png' %}"
+                                alt="category">Fast Food</a>
+                        <div class="category-sub-menu">
+                            <div class="row">
+                                {% for ff in ff %}
+                                <div class="col-md-3 col-6">
+                                    <div class="single-item-wrap text-center">
+                                        <div class="thumb">
+                                            <img src="{{ff.image.url}}" alt="img">
+                                        </div>
+                                        <div class="wrap-details">
+                                            <h6><a href="{% url 'meals:meal_details' ff.slug %}">{{ff.name}}</a></h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+
+                            </div>
+                        </div>
+                    </li>
+                    <li class="category-wrap"><a href="#"><img src="{%static 'assets/img/category/6.png' %}"
+                                alt="category">Soft Drinks</a>
+                        <div class="category-sub-menu">
+                            <div class="row">
+                                {% for sd in sd %}
+                                <div class="col-md-3 col-6">
+                                    <div class="single-item-wrap text-center">
+                                        <div class="thumb">
+                                            <img src="{{sd.image.url}}" alt="img">
+                                        </div>
+                                        <div class="wrap-details">
+                                            <h6><a href="{% url 'meals:meal_details' sd.slug %}">{{sd.name}}</a></h6>
+                                        </div>
+                                        <div class="wrap-details">
+                                            <p>{{sd.summary|safe}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- category Area End -->
+
+<!-- popular Area Start-->
+<section class="populer-area pd-top-50 pd-bottom-120">
+    <div class="container">
+        {% include 'messages.html' %}
+        <div class="row justify-content-center">
+            {% for food in meals %}
+            <div class="col-lg-4 col-md-6">
+                <div class="single-item-wrap">
+                    <div class="thumb">
+                        <img width="306" height="306" src="{{food.image.url}}" alt="img">
+                        <a class="fav-btn" href="{% url 'meals:meal_details' food.slug %}"><i
+                                class="ri-heart-line"></i></a>
+                    </div>
+                    <div class="wrap-details">
+                        <h5 class="center"><a href="{% url 'meals:meal_details' food.slug %}">{{food.name}}</a></h5>
+                        <div class="wrap-footer">
+                            <div class="rating">
+                                <span class="rating-inner">
+                                    ₦ {{food.selling_price}}
+                                </span></br>
+                            </div></br>
+                            <h6 class="text-body">{{food.summary|safe}}</h6>
+                        </div>
+                    </div>
+                    <div class="btn-area">
+                        <a class="btn btn-secondary" href="{% url 'meals:meal_details' food.slug %}">CHOOSE OPTIONS </a>
+                    </div>
+                </div>
+            </div>
+
+            {% endfor %}
+
+            <div class="col-12">
+                <nav>
+                    <ul class="pagination">
+                        {% if meals.has_next %}
+                        {% if meals.has_previous %}
+                        <li class="page-item">
+                            <a class="page-link" href="#">
+                                <i class="ri-arrow-left-s-line"></i>
+                            </a>
+                        </li>
+                        {%endif%}
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">
+                                <i class="ri-arrow-right-s-line"></i>
+                            </a>
+                        </li>
+                        {%endif%}
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- populer Area End -->
+{% endblock content %}

@@ -1,0 +1,60 @@
+{% extends 'base.html'%}
+{%load static %}
+
+{%block content %}
+{% include 'navbar.html' %}
+
+<!-- bredcrumb Area Start-->
+<section class="breadcrumb-area" xmlns="http://www.w3.org/1999/html">
+        <div class="banner-bg-img"></div>
+        <div class="banner-shape-1"><img src="{%static 'assets/img/banner/shape-1.png' %}" alt="img"></div>
+        <div class="banner-shape-2"><img src="{%static 'assets/img/banner/shape-2.png' %}" alt="img"></div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 align-self-center">
+                    <div class="banner-inner text-center">
+                        <h3>Contact with Us
+                        </h3>
+                        <h1>Contact</h1>
+                        <nav aria-label="breadcrumb">
+                            <ul class="breadcrumb">
+                              <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                              <li class="breadcrumb-item active" aria-current="page">Contact</li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- bredcrumb Area End -->
+
+<!--log in start here-->
+<div class="login">
+	<div class="container">
+
+        {%include 'messages.html' %}
+		<div class="login-main">
+			  <h1>Login</h1>
+		<!---728x90--->
+
+		  <div class="col-md-6 login-left">
+			<h2>Existing User</h2>
+			<form method="post">
+                {%csrf_token%}
+				<input type="text" name="username" placeholder="Username" required="">
+				<input type="password" name="password" placeholder="Password" required="">
+				<input type="submit" value="Login">
+			</form></br>
+		  </div>
+		  <div class="col-md-6 login-right">
+		  	 <h3>New User? Create an Account</h3>
+		     <a href="{%url 'user:signup' %}" class="login-btn">Create an Account </a>
+		  </div>
+		  <div class="clearfix"> </div>
+		</div>
+	</div>
+</div>
+<!--log in end here-->
+<!---728x90--->
+{% endblock %}

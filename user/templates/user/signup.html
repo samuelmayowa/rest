@@ -1,0 +1,63 @@
+{%extends 'base.html' %}
+{%load static %}
+
+{%block content %}
+{%include 'navbar.html' %}
+
+<!-- bredcrumb Area Start-->
+<section class="breadcrumb-area" xmlns="http://www.w3.org/1999/html">
+        <div class="banner-bg-img"></div>
+        <div class="banner-shape-1"><img src="{%static 'assets/img/banner/shape-1.png' %}" alt="img"></div>
+        <div class="banner-shape-2"><img src="{%static 'assets/img/banner/shape-2.png' %}" alt="img"></div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 align-self-center">
+                    <div class="banner-inner text-center">
+                        <h3>Contact with Us
+                        </h3>
+                        <h1>Contact</h1>
+                        <nav aria-label="breadcrumb">
+                            <ul class="breadcrumb">
+                              <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                              <li class="breadcrumb-item active" aria-current="page">Contact</li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- bredcrumb Area End -->
+<!--sign in start here-->
+<div class="signin">
+	<div class="container">
+        {%include 'messages.html' %}
+		<div class="signin-main">
+			<h1>Sign up</h1>
+			<!---728x90--->
+
+			<h2>Informations</h2>
+			<form method="post">
+                            {% csrf_token %}
+                            {% for field in form %}
+                                <p>
+                                    {{ field.label_tag }}<br>
+                                    {{ field }}
+                                    {% if field.help_text %}
+                                        <small style="color: grey">{{ field.help_text }}</small>
+                                    {% endif %}
+                                    {% for error in field.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </p>
+                            {% endfor %}
+                            <button type="submit">Sign up</button>
+                        </form>
+            </br>
+		</div>
+	</div>
+</div>
+<!--sign in end here-->
+<!---728x90--->
+
+{%endblock %}
